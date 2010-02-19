@@ -1,0 +1,32 @@
+!!!Strict
+%html{'xmlns' => "http://www.w3.org/1999/xhtml", 'xml:lang' => I18n.locale,  'lang' =>I18n.locale }
+  %head
+    %title
+      DaWanda Client Demo App
+    
+    %link{:rel => "shortcut icon", :type => "image/x-icon", :href => "#{root_url}favicon.ico"}
+
+    = stylesheet_link_tag 'style'
+  %body
+    #header
+      .container_16
+        .grid_16.alpha.omega
+          .grid_4.alpha#logo
+            %a{:href => '/'}
+              =image_tag 'logo_dawanda_blog.gif'
+          .grid_8.alpha.omega
+            &nbsp;
+          .grid_3.omega#menu
+            %a{:href => 'http://de.dawanda.com/'}
+              Jetzt zu Dawanda
+            
+          
+          
+    #claim
+      .container_16
+        .grid_16
+          %h1 DaWanda API Demo
+    #main
+      .container_16
+        .grid_16
+          = yield

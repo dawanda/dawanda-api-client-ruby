@@ -1,0 +1,40 @@
+%h1 DaWanda OAuth Demonstration
+
+- if has_credentials?
+  %div{:style => "float: right"}
+    - if logged_in?
+      = link_to("Logout", "/logout") + " |"
+      = link_to 'Known providers', '/oauth_consumers'
+    - else
+      = link_to("Register", "/signup") + " |"
+      = link_to "Login", "/login"
+
+  %h2= "Hello #{current_user.login}!" if logged_in?
+  - if @user
+    %h2 Your DaWanda user data:
+    %pre=@user.to_yaml
+
+  - if @orders && !@orders.empty?
+    %h2 Your DaWanda orders:
+
+    %h3 Statistics
+    .statistics
+      All orders: #{@orders.size}
+      %br
+      Todays orders (#{Time.now.strftime("%Y/%m/%d")}): #{(@orders_from_today || []).size}
+  
+    %h3 All orders
+
+    %table{:cellpadding => 0, :cellspacing => 0, :width => "100%"}
+      %tr
+        %th Order ID
+        %th Buyer
+        %th Date
+        %th Total price
+        %th Status
+      = render :partial => "order", :collection => @orders
+    
+    - @orders.each do |o|
+      %pre= o.to_yaml
+- else
+  %h2 At the moment you haven't set your OAuth credentials!

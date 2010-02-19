@@ -1,0 +1,5 @@
+%h1=@product.name
+
+.img{:style => 'float:left;margin-right:5px;'}
+  = image_tag @product.images.first['image_160x120'], :class => 'image'
+%p=@product.description

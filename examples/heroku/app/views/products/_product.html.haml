@@ -1,0 +1,7 @@
+%li.product
+  .image
+    - link_to product_path(product.id) do
+      = image_tag product.images.first['image_25x25']
+  - link_to product_path(product.id) do
+    %span= product.name
+  .clear

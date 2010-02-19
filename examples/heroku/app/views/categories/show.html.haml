@@ -1,0 +1,3 @@
+%h1="Alle Producte für Kategorie \"#{@category.name}\""
+%ul#products
+  =render :partial => 'products/product', :collection => @category.products

@@ -1,0 +1,16 @@
+== This is a simple demo for oauth with DaWanda
+
+== Getting Started
+
+1. Clone this project
+2. Modify config/database.yml
+3. Create and migrate your database
+4. Register your app with your DaWanda account at: http://de.dawanda.com/oauth_clients
+5. Modify config/initializers/oauth_consumers.rb, fill in "Consumer Key" and "Consumer Secret"
+6. Startup local server
+7. Signup at http://localhost:3000/signup
+8. Have a look at all available services: http://localhost:3000/oauth_consumers
+9. Click on DaWanda to get access to the DaWanda Api. You are being redirected to the DaWanda Authorization page.
+10. Login with your DaWanda Account and authorize your brand new application
+11. You are being redirected back to your local page.
+12. Now you should see some details of your DaWanda user account.

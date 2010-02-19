@@ -1,0 +1,12 @@
+%h1
+  Alle DaWanda Channels
+  
+%ul.channels
+  = render :partial => 'channel', :collection => @channels
+  
+  
+= link_to 'Nächste Seite', :page => (@page+1)
+%p
+  Diese Seite zeigt alle Channels an. Ruby controller code:
+%p
+  @categories = Dawanda::Channel.all(:page => @page || 1)

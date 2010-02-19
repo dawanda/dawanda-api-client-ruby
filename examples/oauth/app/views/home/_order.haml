@@ -1,0 +1,68 @@
+%tr{:class=>cycle("even", "odd")}
+  %td
+    =order["id"]
+  %td
+    =order["buyer"]["username"]
+    %br
+    ="(#{order["buyer"]["firstname"]} #{order["buyer"]["lastname"]})"
+    %br
+    Payment method:
+    =order["payment_method"]["id"]
+  %td
+    =order["created_at"]
+  %td
+    ="#{"%.2f" % (order["cents"].to_i / 100.0)} #{order["currency"]}"
+    %br
+    -if order["cents_shipping"].present?
+      ="+"+"#{"%.2f" % (order["cents_shipping"].to_i / 100.0)} #{order["currency"]}"
+      %br
+    ="="+"#{"%.2f" % (order["total_cents"].to_i / 100.0)} #{order["currency"]}"
+  %td
+    Created at:
+    =order["created_at"]
+    %br
+    Updated at:
+    =order["updated_at"]
+    %br
+    Confirmed at:
+    =order["confirmed_at"]
+    %br
+    Marked as paid at:
+    =order["marked_as_paid_at"]
+    %br
+    Sent at:
+    =order["sent_at"]
+    %br
+    is cancelled?:
+    =order["is_cancelled"]
+%tr
+  %td
+  %td{:colspan => 10, :style => "text-align: left"}
+    - if order["seller_comment"].present?
+      %strong Seller notice:
+      = order["seller_comment"]
+      %br
+      %br
+    %table{:cellpadding => 0, :cellspacing => 0, :width => "100%"}
+      %tr
+        %th Article ID
+        %th Image
+        %th Title
+        %th Amount
+        %th Single item price
+        %th Total price
+      - order["order_items"].each do |item|
+        %tr
+          %td= item["product"]["id"]
+          %td= image_tag "http://dawanda.com/#{item["image_url"]}"
+          %td= item["product"]["name"]
+          %td= item["quantity"]
+          %td= "#{"%.2f" % (item["cents"].to_i / 100.0)} #{order["currency"]}"
+          %td= "#{"%.2f" % (item["quantity"].to_i*(item["cents"].to_i / 100.0))} #{order["currency"]}"
+    - unless order["comments"].blank?
+      %br
+      %strong Comments:
+      %br
+      - order["comments"].each do |comment|
+        =comment["text"] + " (#{comment["user"]["name"]})"
+        %br

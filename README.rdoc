@@ -1,0 +1,97 @@
+= Dawanda
+
+== Description
+
+The Dawanda gem provides a friendly Ruby interface to the Dawanda API
+
+== Installation
+ 
+Installing the latest stable version is simple:
+
+    sudo gem install dawanda_client --source=http://gemcutter.org
+
+== Usage
+
+The Dawanda API is read-only - all you need to gain access is an API Key (available 
+from http://dawanda.com/apps).  Once you have your API key, set it in your script:
+
+    require 'rubygems'
+    require 'dawanda'
+    Dawanda.api_key = 'foobar'
+    Dawanda.country = 'de'
+
+From there, you can make any calls to the API that you need. Note: Any call to the API can fail.
+In case of an error an exception is raised. So make sure your API client codes handles it.
+
+=== Users
+
+If you're starting with a user, the easiest way is to use the Dawanda.user method:
+
+    >> user = Dawanda.user('meko')
+    => #<Dawanda::User:0x141bf58 @result={"name"=>"meko", "city"=>"auma", "is_seller"=>true, ...
+    >> user.name
+    => "meko"
+    >> user.id
+    => 13008
+
+For more information about what is available for a user, check out the documentation
+for Dawanda::User.
+
+== Shops
+
+Each user may optionally have a shop.  If a user is a seller, he / she also has an
+associated shop object:
+
+  >> user.seller?
+  => true
+  >> shop = user.shop
+  => #<Dawanda::Shop:0x14170c0 @result={"is_vacation"=>false, "name"=>"MEKO STORE" ...
+  >> shop.name
+  => "MEKO STORE"
+  
+More information about shops can be found in the documentation for Dawanda::Shop.
+  
+== Products
+
+Dawanda::Shop, Dawanda::Category, Dawanda::Color contain multiple products:
+
+  >> shop.products
+  => [#<Dawanda::Product:0x1405f3c @result={"price"=>{"cents"=>2500, "currency_code"=>"EUR"}, "name"=>"Harmonie", ... ]
+  >> product = shop.products.first
+  => #<Dawanda::Product:0x1405f3c @result={"price"=>{"cents"=>2500, "currency_code"=>"EUR"}, "name"=>"Harmonie", ...
+  >> product.name
+  => "Harmonie"
+  >> product.description
+  => "Harmonie \n- Inselsymposium / Gimmlitztal \n- Eiche \n- geölt \n- L:150 / Durchmesser ca. 28cm"
+  >> product.product_url
+  => ""http://de.dawanda.com/product/1-Harmonie""
+  >> product.view_count
+  => 155
+  >> product.created_at
+  => Sat Sep 16 01:35:05 +0200 2006
+
+See the documentation for [Dawanda::Product|http://wiki.github.com/dawanda/dawanda-api/data-type-product] for more information.
+
+
+== Category
+
+Dawanda categories are organized in a tree. To get the top level of categories, you can call:
+
+  >> category = Dawanda::Category.top.first
+  => #<Dawanda::Category:0x138c5d8 @result={"product_count"=>0, "name"=>"2000", "id"=>218,
+  >> category.parent
+  => nil
+  >> category.children
+  => [#<Dawanda::Category:0x1395cb4 @result={"product_count"=>4851, "name"=>"2001", "id"=>222, ...
+  >> category.product_count
+  => 100
+
+== Exception
+
+  Chances are, that for some reason a HTTP request to the dawanda API can fail. This can have many reasons, either
+  missing network connection or a wrong id. In case the HTTP status code is different von 2xx or 3xx an exception containing
+  a meaningful error message is raised.
+  
+  >> category = Dawanda::Category.find_by_id(2323)
+  => RuntimeError: {"error":{"status":404,"message":"The Category 2323 could not be found"}}
+  

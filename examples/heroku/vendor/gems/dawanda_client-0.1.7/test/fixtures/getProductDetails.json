@@ -1,0 +1,71 @@
+{
+  "response":{
+    "type":"product",
+    "pages":1,
+    "entries":1,
+    "result":{
+      "product":{
+        "user":{
+          "name":"meko",
+          "id":13008,
+          "restful_path":"\/users\/13008"
+        },
+        "name":"Hoodie \"SUE\"",
+        "category":{
+          "name":"1003",
+          "id":418,
+          "restful_path":"\/categories\/418"
+        },
+        "image_colors":[
+          {
+            "green":0,
+            "blue":0,
+            "hex":"000000",
+            "red":0
+          },{
+            "green":205,
+            "blue":245,
+            "hex":"97cdf5",
+            "red":151
+          }
+        ],
+        "price":{
+          "currency_code":"EUR",
+          "cents":6990
+        },
+        "product_url":"http:\/\/de.dawanda.com\/product\/4316882-Hoodie-SUE",
+        "tags":"pullover, carina, meko, Sweat, Hoodie, Karo, shabby chic",
+        "quantity":1,
+        "id":4316882,
+        "materials":"Baumwollmischgewebe",
+        "description":"Farbe: hellblau-t\u00fcrkis, cremewei\u00df, schwarz\r\n\r\nMaterial: karierter Baumwollelasthanmix, Elasticb\u00fcndchen in schwarz, Kapuzenfutter ist schwarzer BW\r\n\r\nlieferbar in den Gr\u00f6\u00dfen: S(36), M(38)\r\n\r\nLieferzeit : 10 - 14 Werktage ab Zahlungseingang (da keine Lagerware sondern Fertigung auf Bestellung)\r\n\r\nInfo: supers\u00fc\u00dfer Kapuzenpullover mit extra hochgeschlossener Kapuze, auf der Front befindet sich eine Tasche in Hosenlatz Optik, das meko Brand und die Kn\u00f6pfe runden die Sache ab!\r\n\r\n!!!BITTE LIES DIR VOR EINEM KAUF UNSERE AGB`S DURCH, UND KAUFE NUR WENN DU DAMIT EINVERSTANDEN BIST!!!\r\n\r\nPflege: Maschinenw\u00e4sche im Woll-oder Schonwaschgang bei 30\u00b0, kein Trockner, auf links b\u00fcgeln!",
+        "images":[
+          {
+            "image_160x120":"http:\/\/img.dawanda.com\/Product\/4316\/4316882\/listview\/1245952642-42.jpg",
+            "image_50x50":"http:\/\/img.dawanda.com\/Product\/4316\/4316882\/listing\/1245952642-42.jpg",
+            "image_100x75":"http:\/\/img.dawanda.com\/Product\/4316\/4316882\/pin\/1245952642-42.jpg",
+            "image_80x80":"http:\/\/img.dawanda.com\/Product\/4316\/4316882\/thumb\/1245952642-42.jpg",
+            "image_800x600":"http:\/\/img.dawanda.com\/Product\/4316\/4316882\/big\/1245952642-42.jpg",
+            "image_25x25":"http:\/\/img.dawanda.com\/Product\/4316\/4316882\/mini\/1245952642-42.jpg"
+          },{
+            "image_160x120":"http:\/\/img.dawanda.com\/Product\/4316\/4316882\/listview\/1245952877-223.jpg",
+            "image_50x50":"http:\/\/img.dawanda.com\/Product\/4316\/4316882\/listing\/1245952877-223.jpg",
+            "image_100x75":"http:\/\/img.dawanda.com\/Product\/4316\/4316882\/pin\/1245952877-223.jpg",
+            "image_80x80":"http:\/\/img.dawanda.com\/Product\/4316\/4316882\/thumb\/1245952877-223.jpg",
+            "image_800x600":"http:\/\/img.dawanda.com\/Product\/4316\/4316882\/big\/1245952877-223.jpg",
+            "image_25x25":"http:\/\/img.dawanda.com\/Product\/4316\/4316882\/mini\/1245952877-223.jpg"
+          }
+        ],
+        "ending":"2010/01/27 11:12:39 +0000",
+        "restful_path":"\/products\/4316882",
+        "created_at":"2009/06/25 17:56:27 +0000",
+        "view_count":3769
+      }
+    },
+    "params":{
+      "format":"json",
+      "api_key":"foobar",
+      "id":"4316882"
+    }
+  }
+}

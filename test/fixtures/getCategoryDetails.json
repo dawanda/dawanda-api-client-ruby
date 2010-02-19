@@ -1,0 +1,21 @@
+{
+  "response":{
+    "type":"category",
+    "pages":1,
+    "entries":1,
+    "result":{
+      "category":{
+        "name":"1003",
+        "product_count":754,
+        "id":418,
+        "parent_id":406,
+        "restful_path":"\/categories\/418"
+      }
+    },
+    "params":{
+      "format":"json",
+      "api_key":"foobar",
+      "id":"418"
+    }
+  }
+}

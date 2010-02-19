@@ -1,0 +1,10 @@
+%h1="Alle Kategorien für Channel \"#{@channel.name}\""
+
+- unless @categories.empty?
+  %ul.categories
+    - @categories.each do |category|
+      %li.category
+        =link_to category.name, category_path(category.id)
+  = link_to 'Nächste Seite', :page => (@page+1)
+- else
+  %p= "Es sind keine Kategorien vorhanden"
