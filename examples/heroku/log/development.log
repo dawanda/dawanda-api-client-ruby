@@ -1,0 +1,120 @@
+# Logfile created on Fri Feb 19 13:27:17 +0100 2010
+
+Processing ChannelsController#index (for 127.0.0.1 at 2010-02-19 13:27:59) [GET]
+Rendering template within layouts/application
+Rendering channels/index
+Rendered channels/_channel (1.2ms)
+Rendered channels/_channel (0.1ms)
+Rendered channels/_channel (0.1ms)
+Rendered channels/_channel (0.1ms)
+Rendered channels/_channel (0.1ms)
+Rendered channels/_channel (0.1ms)
+Rendered channels/_channel (0.1ms)
+Rendered channels/_channel (0.1ms)
+Rendered channels/_channel (0.1ms)
+Completed in 406ms (View: 113 | 200 OK [http://localhost/]
+
+
+Processing ChannelsController#index (for 127.0.0.1 at 2010-02-19 13:28:10) [GET]
+  Parameters: {"page"=>"2"}
+Rendering template within layouts/application
+Rendering channels/index
+Rendered channels/_channel (0.2ms)
+Rendered channels/_channel (0.1ms)
+Rendered channels/_channel (0.1ms)
+Rendered channels/_channel (0.1ms)
+Rendered channels/_channel (0.1ms)
+Rendered channels/_channel (0.1ms)
+Rendered channels/_channel (0.1ms)
+Rendered channels/_channel (0.1ms)
+Rendered channels/_channel (0.1ms)
+Completed in 339ms (View: 4 | 200 OK [http://localhost/?page=2]
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-02-19 13:28:14) [GET]
+  Parameters: {"channel_id"=>"1"}
+Rendering template within layouts/application
+Rendering categories/index
+Completed in 302ms (View: 10 | 200 OK [http://localhost/channels/1/categories]
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2010-02-19 13:28:17) [GET]
+  Parameters: {"id"=>"406"}
+Rendering template within layouts/application
+Rendering categories/show
+Rendered products/_product (2.7ms)
+Rendered products/_product (1.0ms)
+Rendered products/_product (0.7ms)
+Rendered products/_product (61.1ms)
+Rendered products/_product (1.0ms)
+Rendered products/_product (0.8ms)
+Rendered products/_product (0.8ms)
+Rendered products/_product (0.7ms)
+Rendered products/_product (0.8ms)
+Rendered products/_product (0.7ms)
+Completed in 2056ms (View: 917 | 200 OK [http://localhost/categories/406]
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2010-02-19 13:30:07) [GET]
+  Parameters: {"id"=>"406"}
+Rendering template within layouts/application
+Rendering categories/show
+Rendered products/_product (71.4ms)
+Rendered products/_product (2.2ms)
+Rendered products/_product (0.8ms)
+Rendered products/_product (4.1ms)
+Rendered products/_product (0.8ms)
+Rendered products/_product (0.8ms)
+Rendered products/_product (0.8ms)
+Rendered products/_product (1.3ms)
+Rendered products/_product (0.8ms)
+Rendered products/_product (2.3ms)
+Completed in 1736ms (View: 1294 | 200 OK [http://localhost/categories/406]
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2010-02-19 13:30:09) [GET]
+  Parameters: {"id"=>"406"}
+Rendering template within layouts/application
+Rendering categories/show
+Rendered products/_product (1.0ms)
+Rendered products/_product (1.4ms)
+Rendered products/_product (0.8ms)
+Rendered products/_product (0.7ms)
+Rendered products/_product (0.9ms)
+Rendered products/_product (1.0ms)
+Rendered products/_product (0.9ms)
+Rendered products/_product (0.9ms)
+Rendered products/_product (0.8ms)
+Rendered products/_product (0.8ms)
+Completed in 780ms (View: 393 | 200 OK [http://localhost/categories/406]
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-02-19 13:30:09) [GET]
+  Parameters: {"channel_id"=>"1"}
+Rendering template within layouts/application
+Rendering categories/index
+Completed in 382ms (View: 9 | 200 OK [http://localhost/channels/1/categories]
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-02-19 13:30:10) [GET]
+  Parameters: {"channel_id"=>"1"}
+Rendering template within layouts/application
+Rendering categories/index
+Completed in 319ms (View: 4 | 200 OK [http://localhost/channels/1/categories]
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2010-02-19 13:30:11) [GET]
+  Parameters: {"id"=>"410"}
+Rendering template within layouts/application
+Rendering categories/show
+Rendered products/_product (0.9ms)
+Rendered products/_product (0.7ms)
+Rendered products/_product (0.6ms)
+Rendered products/_product (0.7ms)
+Rendered products/_product (0.8ms)
+Rendered products/_product (0.8ms)
+Rendered products/_product (0.8ms)
+Rendered products/_product (0.8ms)
+Rendered products/_product (0.8ms)
+Rendered products/_product (0.8ms)
+Completed in 1275ms (View: 816 | 200 OK [http://localhost/categories/410]
