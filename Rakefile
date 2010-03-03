@@ -39,6 +39,9 @@ begin
     gemspec.email = 'info@christophbuente.de'
     gemspec.homepage = "http://github.com/dawanda/dawanda_client"
     gemspec.authors = ['Christoph Bünte']
+    
+    gemspec.files.exclude 'examples/*'
+    gemspec.test_files.exclude 'examples/*'
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
