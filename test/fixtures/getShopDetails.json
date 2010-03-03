@@ -19,7 +19,7 @@
         "name":"MEKO STORE",
         "updated_at":"2009/09/29 09:58:46 +0000",
         "images": [
-          {"banner":"http:\/\/img.dawanda.com.s3.amazonaws.com\/Shop\/1\/1592\/maxbanner\/1253807487-995.jpg"}
+          {"shop_banner":"http:\/\/img.dawanda.com.s3.amazonaws.com\/Shop\/1\/1592\/maxbanner\/1253807487-995.jpg"}
         ],
         "restful_path":"\/shops\/13008",
         "shop_categories": [
