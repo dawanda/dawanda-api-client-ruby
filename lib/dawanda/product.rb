@@ -30,9 +30,9 @@ module Dawanda
     
     finder :one, '/products/:id'
     
-    attribute :created, :from => :created_at
-    attribute :category_id, :from => {:category => :id }
-    attribute :user_id, :from => {:user => :id }
+    attribute :created, :created_at
+    attribute :category_id, [ :category, :id ]
+    attribute :user_id, [ :user => :id ]
     
     attributes :id, :name, :description, :created_at, :view_count, :tags,
                :ending, :quantity, :materials, :price, :restful_path, :product_url, :images

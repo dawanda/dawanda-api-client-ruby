@@ -19,10 +19,10 @@ module Dawanda
     finder :one, '/shops/:user_id'
     finder :all, '/shops/:method'
     
-    attribute :updated,           :from => :updated_at
-    attribute :created,           :from => :created_at
-    attribute :user_id,           :from => { :user => :id }
-    attribute :banner_image_url,  :from => { :images => :banner }
+    attribute :updated,           :updated_at
+    attribute :created,           :created_at
+    attribute :user_id,           [:user, :id]
+    attribute :banner_image_url,  [:images, 0, :shop_banner]
 
     attributes :name
    

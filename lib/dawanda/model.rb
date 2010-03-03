@@ -3,29 +3,32 @@ module Dawanda
     
     module ClassMethods
       
-      def attribute(name, options = {})
-        from = parse_from(name,options)
-        if from.is_a? Array
+      def attribute(name, options=nil)
+        options = name if options.nil?
+        if options.is_a? Array
           class_eval <<-CODE
             def #{name}
-              @result['#{from.first}']['#{from.last}']
+              @result#{to_result_string(options)}
             end
           CODE
         else
           class_eval <<-CODE
             def #{name}
-              @result['#{from}']
+              @result['#{options}']
             end
           CODE
         end
       end
-      
-      def parse_from(name,options)
-        from = options.fetch(:from,name)
-        return from unless from.is_a? Hash
-        key = from.keys.first
-        value = from.fetch(key)
-        [key,value]
+            
+      def to_result_string options
+        options.map! do |o| 
+          if o.is_a? Numeric
+            "[#{o}]"
+          else
+            "['#{o}']"
+          end
+        end
+        options.join
       end
       
       def attributes(*names)
