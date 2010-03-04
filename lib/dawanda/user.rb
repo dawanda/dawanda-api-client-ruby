@@ -56,5 +56,9 @@ module Dawanda
       images.first['image_170x']
     end
     
+    def pinboards(params = {})
+      Pinboard.find_all_by_user_id(id, params)
+    end
+    
   end
 end

@@ -15,6 +15,7 @@ require 'dawanda/category'
 require 'dawanda/shop_category'
 require 'dawanda/color'
 require 'dawanda/channel'
+require 'dawanda/pinboard'
 
 # = DaWanda Client: A friendly Ruby interface to the DaWanda API
 #
