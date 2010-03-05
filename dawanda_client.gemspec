@@ -8,10 +8,10 @@ Gem::Specification.new do |s|
   s.version = "0.1.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Christoph B\303\274nte"]
-  s.date = %q{2010-03-03}
+  s.authors = ["DaWanda GmbH"]
+  s.date = %q{2010-03-05}
   s.description = %q{Provides a friendly ruby-like interface to the Dawanda API}
-  s.email = %q{info@christophbuente.de}
+  s.email = %q{api@dawanda.com}
   s.extra_rdoc_files = [
     "LICENSE",
      "README.rdoc"
@@ -46,10 +46,10 @@ Gem::Specification.new do |s|
      "test/unit/dawanda/user_test.rb",
      "test/unit/dawanda_test.rb"
   ]
-  s.homepage = %q{http://github.com/dawanda/dawanda_client}
+  s.homepage = %q{http://github.com/dawanda/dawanda-api-client-ruby}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{Provides a friendly ruby-like interface to the Dawanda API}
   s.test_files = [
     "test/test_helper.rb",

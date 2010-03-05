@@ -36,13 +36,13 @@ begin
     gemspec.name = "dawanda_client"
     gemspec.summary = "Provides a friendly ruby-like interface to the Dawanda API"
     gemspec.description = "Provides a friendly ruby-like interface to the Dawanda API"
-    gemspec.email = 'info@christophbuente.de'
-    gemspec.homepage = "http://github.com/dawanda/dawanda_client"
-    gemspec.authors = ['Christoph Bünte']
+    gemspec.email = 'api@dawanda.com'
+    gemspec.homepage = "http://github.com/dawanda/dawanda-api-client-ruby"
+    gemspec.authors = ['DaWanda GmbH']
     
     gemspec.files.exclude 'examples/*'
     gemspec.test_files.exclude 'examples/*'
   end
 rescue LoadError
-  puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
+  puts "Jeweler not available. Install it with: gem install jeweler"
 end
