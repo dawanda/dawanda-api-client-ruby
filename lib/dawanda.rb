@@ -72,6 +72,16 @@ module Dawanda
     @country || 'de'
   end
   
+  # Set the domain for all requests
+  def self.domain=(domain)
+    @domain = domain
+  end
+  
+  # Retrieve the domain
+  def self.domain
+    @domain || 'dawanda.com'
+  end
+  
   # Find a user by username.  See Dawanda::User for more information.
   def self.user(username_or_id)
     User.find_by_user_id(username_or_id)
