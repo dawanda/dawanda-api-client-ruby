@@ -35,7 +35,7 @@ module Dawanda
     attribute :user_id, [ :user => :id ]
     
     attributes :id, :name, :description, :created_at, :view_count, :tags,
-               :ending, :quantity, :materials, :price, :restful_path, :product_url, :images
+               :ending, :quantity, :materials, :price, :restful_path, :product_url, :images, :user
 
  
     # Time that this product was created
@@ -74,7 +74,7 @@ module Dawanda
     end
     
     def shop(params = {})
-      Shop.find_by_user_id(user_id)
+      Shop.find_by_user_id(user["id"])
     end
   end
 end

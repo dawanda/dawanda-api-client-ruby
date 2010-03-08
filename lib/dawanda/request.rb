@@ -51,6 +51,5 @@ module Dawanda
       uri.query = query
       uri
     end
-    
   end
 end
