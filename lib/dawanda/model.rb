@@ -48,7 +48,7 @@ module Dawanda
         class_eval <<-CODE
           def self.find_all_by_#{parameter}(#{parameter}, params = {})
             response = Request.get("#{endpoint}", params)
-            response.result.map {|listing| new(listing) }
+            response.results.map {|listing| new(listing) }
           end
         CODE
       end
