@@ -26,8 +26,6 @@ module Dawanda
     finder :all, '/colors/:hex_search/products/search'
     finder :all, '/product/:method'
     
-    
-    
     finder :one, '/products/:id'
     
     attribute :created, :created_at
