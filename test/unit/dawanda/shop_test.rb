@@ -22,6 +22,7 @@ module Dawanda
         value_for :name,              :is => 'MEKO STORE'
         value_for :updated,           :is => "2009/09/29 09:58:46 +0000"
         value_for :created,           :is => "2007/05/18 10:44:17 +0000"
+        value_for :banner_image_url,  :is => "http://img.dawanda.com.s3.amazonaws.com/Shop/1/1592/maxbanner/1253807487-995.jpg"
       end
       
       should "know the creation date" do
