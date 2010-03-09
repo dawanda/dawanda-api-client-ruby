@@ -24,7 +24,7 @@ class Test::Unit::TestCase
     response = Dawanda::Response.new(stub())
 
     data = read_fixture(options[:data])
-    data = data.first if data.size == 1
+    data = data.to_a.first if data.size == 1
 
     response.stubs(:result).with().returns(data)
     Dawanda::Request.stubs(:get).with(options[:for], {}).returns(response)
