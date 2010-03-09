@@ -7,10 +7,9 @@ module Dawanda
 
       should "be able to find a category by :id" do
         id  = 5327518
-        response = mock_request_cycle :for => "/categories/#{id}", :data => 'getCategoryDetails'
+        response = mock_request_cycle({:for => "/categories/#{id}", :data => 'getCategoryDetails'})
 
         Category.expects(:new).with(response.result).returns('category')
-        
         Category.find_by_id(id, {}).should == 'category'
       end
 
@@ -19,7 +18,7 @@ module Dawanda
     context "An instance of the Category class" do
       when_populating Category,   :from => 'getCategoryDetails' do
         value_for :name,                    :is => '1003'
-        value_for :product_count,           :is => 754           
+        value_for :product_count,           :is => 754
         value_for :parent_id,               :is => 406
         value_for :id,                      :is => 418
       end

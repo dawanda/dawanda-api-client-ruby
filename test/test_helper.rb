@@ -3,6 +3,9 @@ $:.reject! { |e| e.include? 'TextMate' }
 
 require 'rubygems'
 require 'throat_punch'
+require 'net/http'
+require 'json'
+require 'time'
 
 require File.dirname(__FILE__) + '/../lib/dawanda'
 
@@ -21,7 +24,7 @@ class Test::Unit::TestCase
     response = Dawanda::Response.new(stub())
 
     data = read_fixture(options[:data])
-    data = data.first if data.size == 1
+    data = data.to_a.first if data.size == 1
 
     response.stubs(:result).with().returns(data)
     Dawanda::Request.stubs(:get).with(options[:for], {}).returns(response)
@@ -48,6 +51,11 @@ class Test::Unit::TestCase
     should "have a value for :#{method_name}" do
       @object.send(method_name).should == options[:is]
     end
+  end
+
+  def response_from_fixture(method_name)
+    file = File.dirname(__FILE__) + "/fixtures/#{method_name}.json"
+    Dawanda::Response.new(File.read(file))
   end
 
 end

@@ -28,10 +28,10 @@
         <div id="product_container">
           <div style="text-align: center;" id="pagination_container">
             <% if @page > 1 %>
-              <span id="back_button"><a href="<%= "/shop/#{params[:username]}/#{@shop_category.id}/#{@page+1}" %>">Zurück</a></span>&nbsp;&nbsp;&nbsp;
+              <span id="back_button"><a href="<%= "/shop/#{params[:username]}/#{@shop_category.id}/#{@page-1}" %>">Zurück</a></span>&nbsp;&nbsp;&nbsp;
             <% end %>
             <% if @page < @max_page %>
-              <span id="forward_button"><a href="<%= "/shop/#{params[:username]}/#{@shop_category.id}/#{@page-1}" %>">Weiter (To be fixed)</a></span>
+              <span id="forward_button"><a href="<%= "/shop/#{params[:username]}/#{@shop_category.id}/#{@page+1}" %>">Weiter</a></span>
             <% end %>
           </div>
           <ul id="products">
@@ -45,7 +45,7 @@
                     <img border='0' src="<%= product.images.first["image_160x120"] %>">
                   </a>
                   <span><%= product.name[0..25] %></span>
-                  <span><%= product.shop.user.name[0...20] %></span>
+                  <span><%= product.user["name"][0...20] %></span>
                   <span style='float:right'><%= product.price["cents"].to_i/100 %> <%= product.price["currency_code"] %></span>
                 </li>
               <% end %>

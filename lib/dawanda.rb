@@ -82,29 +82,29 @@ module Dawanda
     @domain || 'dawanda.com'
   end
   
-  # Find a user by username.  See Dawanda::User for more information.
-  def self.user(username_or_id)
-    User.find_by_user_id(username_or_id)
+  # Find a user by username. See Dawanda::User for more information.
+  def self.user(username_or_id, options={})
+    User.find_by_user_id(username_or_id, options)
   end
   
   # Find a shop by username.  See Dawanda::Shop for more information.
-  def self.shop(username_or_id)
-    Shop.find_by_user_id(username_or_id)
+  def self.shop(username_or_id, options={})
+    Shop.find_by_user_id(username_or_id, options)
   end
   
   # Find a product by id.  See Dawanda::Product for more information.
-  def self.product(product_id)
-    Product.find_by_id(product_id)
+  def self.product(product_id, options={})
+    Product.find_by_id(product_id, options)
   end
   
   # Find a category by id.  See Dawanda::Category for more information.
-  def self.category(category_id)
-    Category.find_by_id(category_id)
+  def self.category(category_id, options={})
+    Category.find_by_id(category_id, options)
   end
   
   # Find a shop_category by id.  See Dawanda::ShopCategory for more information.
-  def self.shop_category(shop_category_id)
-    ShopCategory.find_by_id(shop_category_id)
+  def self.shop_category(shop_category_id, options={})
+    ShopCategory.find_by_id(shop_category_id, options)
   end
   
 end
