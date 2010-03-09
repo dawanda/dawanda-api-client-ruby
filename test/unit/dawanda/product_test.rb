@@ -31,7 +31,7 @@ module Dawanda
         user_id  = 5327518
         
         product = Product.new
-        product.expects(:user_id).returns(user_id).at_least_once
+        product.expects(:user).returns({"id" => user_id}).at_least_once
         response = mock_request_cycle :for => "/shops/#{user_id}", :data => 'getShopDetails'
         
         Shop.expects(:new).with(response.result).returns('shop')

@@ -17,35 +17,35 @@ class DawandaTest < Test::Unit::TestCase
     should "be able to find a user by username" do
       user = stub()
       
-      Dawanda::User.expects(:find_by_user_id).with('littletjane').returns(user)
+      Dawanda::User.expects(:find_by_user_id).with('littletjane', {}).returns(user)
       Dawanda.user('littletjane').should == user
     end
     
     should "be able to find a shop by username" do
       shop = stub()
       
-      Dawanda::Shop.expects(:find_by_user_id).with('littletjane').returns(shop)
+      Dawanda::Shop.expects(:find_by_user_id).with('littletjane', {}).returns(shop)
       Dawanda.shop('littletjane').should == shop
     end
     
     should "be able to find a product by id" do
       product = stub()
       
-      Dawanda::Product.expects(:find_by_id).with(15).returns(product)
+      Dawanda::Product.expects(:find_by_id).with(15, {}).returns(product)
       Dawanda.product(15).should == product
     end
     
     should "be able to find a category by id" do
       category = stub()
       
-      Dawanda::Category.expects(:find_by_id).with(16).returns(category)
+      Dawanda::Category.expects(:find_by_id).with(16, {}).returns(category)
       Dawanda.category(16).should == category
     end
     
     should "be able to find a shop category by id" do
       shop_category = stub()
       
-      Dawanda::ShopCategory.expects(:find_by_id).with(16).returns(shop_category)
+      Dawanda::ShopCategory.expects(:find_by_id).with(16, {}).returns(shop_category)
       Dawanda.shop_category(16).should == shop_category
     end
     
