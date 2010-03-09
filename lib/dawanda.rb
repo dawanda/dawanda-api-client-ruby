@@ -71,7 +71,7 @@ module Dawanda
     @country || 'de'
   end
   
-  # Find a user by username.  See Dawanda::User for more information.
+  # Find a user by username. See Dawanda::User for more information.
   def self.user(username_or_id, options={})
     User.find_by_user_id(username_or_id, options)
   end

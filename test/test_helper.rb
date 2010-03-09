@@ -3,6 +3,9 @@ $:.reject! { |e| e.include? 'TextMate' }
 
 require 'rubygems'
 require 'throat_punch'
+require 'net/http'
+require 'json'
+require 'time'
 
 require File.dirname(__FILE__) + '/../lib/dawanda'
 

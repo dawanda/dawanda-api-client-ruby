@@ -1,9 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class DawandaTest < Test::Unit::TestCase
-
   context "The Dawanda module" do
-    
     should "be able to set and retrieve the API key" do
       Dawanda.api_key = 'key'
       Dawanda.api_key.should == 'key'
@@ -19,6 +17,15 @@ class DawandaTest < Test::Unit::TestCase
       
       Dawanda::User.expects(:find_by_user_id).with('littletjane', {}).returns(user)
       Dawanda.user('littletjane').should == user
+    end
+    
+    should "be able to get the raw response" do
+      Dawanda.api_key = '380d7924396f5596116f3d8815c97dfd8c975582'
+      Dawanda.country = 'de'
+      response = Dawanda.user("dawanda-merchandise", {:raw_response => true})
+      response.result.should_not != nil
+      response.pages.should_not != nil
+      response.entries.should_not != nil
     end
     
     should "be able to find a shop by username" do
@@ -48,7 +55,5 @@ class DawandaTest < Test::Unit::TestCase
       Dawanda::ShopCategory.expects(:find_by_id).with(16, {}).returns(shop_category)
       Dawanda.shop_category(16).should == shop_category
     end
-    
   end
-
 end
