@@ -20,12 +20,13 @@ class DawandaTest < Test::Unit::TestCase
     end
     
     should "be able to get the raw response" do
-      Dawanda.api_key = '380d7924396f5596116f3d8815c97dfd8c975582'
-      Dawanda.country = 'de'
-      response = Dawanda.user("DaWanda-API", {:raw_response => true})
-      response.result.should_not == nil
-      response.pages.should_not == nil
-      response.entries.should_not == nil
+      response = response_from_fixture('getUserDetails')
+      Dawanda::Request.expects(:get).returns(response)
+      
+      user = Dawanda.user("meko", {:raw_response => true})
+      user.result.should_not == nil
+      user.pages.should_not == nil
+      user.entries.should_not == nil
     end
     
     should "be able to find a shop by username" do
