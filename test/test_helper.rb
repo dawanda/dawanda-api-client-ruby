@@ -53,4 +53,9 @@ class Test::Unit::TestCase
     end
   end
 
+  def response_from_fixture(method_name)
+    file = File.dirname(__FILE__) + "/fixtures/#{method_name}.json"
+    Dawanda::Response.new(File.read(file))
+  end
+
 end
