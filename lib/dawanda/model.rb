@@ -74,7 +74,7 @@ module Dawanda
             response = Request.get("#{endpoint}", params.reject{|key, value| key == :raw_response})
             return response if params[:raw_response]
             if response.result.nil?
-              new response.results
+              response.results.map {|listing| new(listing) }
             else
               new response.result
             end
