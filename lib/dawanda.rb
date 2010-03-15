@@ -107,4 +107,9 @@ module Dawanda
     ShopCategory.find_by_id(shop_category_id, options)
   end
   
+  # Find a pinboard by id.  See Dawanda::Pinboard for more information.
+  def self.pinboard(pinboard_id)
+    Pinboard.find_by_id(pinboard_id)
+  end
+  
 end
