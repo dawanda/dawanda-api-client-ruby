@@ -35,13 +35,17 @@ module Dawanda
         names.each {|name| attribute(name) }
       end
 
-      def finder(type, endpoint)
-        parameter = endpoint.scan(/:\w+/).first
-        parameter.sub!(/^:/, '')
-
-        endpoint.sub!(":#{parameter}", '#{' + parameter + '}')
-
-        send("find_#{type}", parameter, endpoint)
+      def finder(type, endpoint, name=nil)
+        if name.nil?
+          parameter = endpoint.scan(/:\w+/).first
+          parameter.sub!(/^:/, '')
+          
+          endpoint.sub!(":#{parameter}", '#{' + parameter + '}')
+          
+          send("find_#{type}", parameter, endpoint)
+        elsif type == :generic
+          send("find_#{type}", name, endpoint)
+        end
       end
       
       def find_all(parameter, endpoint)
@@ -64,6 +68,19 @@ module Dawanda
         CODE
       end
       
+      def find_generic(name, endpoint)
+        class_eval <<-CODE
+          def self.find_#{name}(params = {})
+            response = Request.get("#{endpoint}", params.reject{|key, value| key == :raw_response})
+            return response if params[:raw_response]
+            if response.result.nil?
+              new response.results
+            else
+              new response.result
+            end
+          end
+        CODE
+      end
     end
     
     module InstanceMethods
