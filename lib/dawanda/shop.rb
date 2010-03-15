@@ -48,6 +48,11 @@ module Dawanda
       find_all_by_method('shops')
     end
 
+    # shop_window_products
+    def shop_window_products
+      @shop_window_products ||= Product.find_window_products_by_user_id(:user_id => user_id)
+    end
+
     # A collection of products in this user's shop. See Dawanda::Product for
     # more information
     #
