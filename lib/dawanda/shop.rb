@@ -24,7 +24,7 @@ module Dawanda
     attribute :user_id,           [:user, :id]
     attribute :banner_image_url,  [:images, 0, :shop_banner]
 
-    attributes :name
+    attributes :name, :description
    
     # Time that this shop was created
     #
