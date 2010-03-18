@@ -38,10 +38,14 @@ module Dawanda
     def params
       to_hash['params']
     end
-    # Results of the API request
+    # Result of the API request that expect exactly one result
     def result
-      entries == 1 ? to_hash['result'][type] : to_hash['result'].values.first
+      to_hash['result'][type]
     end
     
+    # Results of the API request that expect an arry of results
+    def results
+      to_hash['result'].values.first
+    end
   end
 end

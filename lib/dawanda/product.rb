@@ -25,6 +25,8 @@ module Dawanda
     finder :all, '/colors/:hex/products'
     finder :all, '/colors/:hex_search/products/search'
     finder :all, '/product/:method'
+    finder :all, '/pinboards/:pinboard_id/products'
+    finder :generic, '/shops/window_products', :window_products_by_user_id
     
     finder :one, '/products/:id'
     

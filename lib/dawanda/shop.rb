@@ -24,7 +24,7 @@ module Dawanda
     attribute :user_id,           [:user, :id]
     attribute :banner_image_url,  [:images, 0, :shop_banner]
 
-    attributes :name
+    attributes :name, :description
    
     # Time that this shop was created
     #
@@ -46,6 +46,11 @@ module Dawanda
     
     def self.all(params = {})
       find_all_by_method('shops')
+    end
+
+    # shop_window_products
+    def shop_window_products
+      @shop_window_products ||= Product.find_window_products_by_user_id(:user_id => user_id)
     end
 
     # A collection of products in this user's shop. See Dawanda::Product for

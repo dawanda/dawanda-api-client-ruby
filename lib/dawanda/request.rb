@@ -8,7 +8,7 @@ module Dawanda
     
     # The base URL for API requests
     def self.base_url
-      url = "http://#{Dawanda.country}.dawanda.com/api/v1"
+      url = "http://#{Dawanda.country}.#{Dawanda.domain}/api/v1"
     end
     
     # Perform a GET request for the resource with optional parameters - returns

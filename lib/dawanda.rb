@@ -15,6 +15,7 @@ require 'dawanda/category'
 require 'dawanda/shop_category'
 require 'dawanda/color'
 require 'dawanda/channel'
+require 'dawanda/pinboard'
 
 # = DaWanda Client: A friendly Ruby interface to the DaWanda API
 #
@@ -71,6 +72,16 @@ module Dawanda
     @country || 'de'
   end
   
+  # Set the domain for all requests
+  def self.domain=(domain)
+    @domain = domain
+  end
+  
+  # Retrieve the domain
+  def self.domain
+    @domain || 'dawanda.com'
+  end
+  
   # Find a user by username. See Dawanda::User for more information.
   def self.user(username_or_id, options={})
     User.find_by_user_id(username_or_id, options)
@@ -94,6 +105,11 @@ module Dawanda
   # Find a shop_category by id.  See Dawanda::ShopCategory for more information.
   def self.shop_category(shop_category_id, options={})
     ShopCategory.find_by_id(shop_category_id, options)
+  end
+  
+  # Find a pinboard by id.  See Dawanda::Pinboard for more information.
+  def self.pinboard(pinboard_id)
+    Pinboard.find_by_id(pinboard_id)
   end
   
 end
