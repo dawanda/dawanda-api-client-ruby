@@ -27,6 +27,7 @@ get "/shop/:username/:id/:page" do
   @shop_category = Dawanda.shop_category(params[:id])
   
   @products_result = @shop_category.products(:page => @page, :raw_response => true)
+  puts @products_result.inspect
   @products = @products_result.result.map {|listing| Dawanda::Product.new(listing) }
   @max_page = @products_result.pages.to_i
   
