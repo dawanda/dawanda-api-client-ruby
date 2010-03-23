@@ -82,6 +82,17 @@ module Dawanda
     @domain || 'dawanda.com'
   end
   
+  # retrieve HTTP Basic credentials
+  def self.http_basic
+    @http_basic || nil
+  end
+  
+  # set credetials for HTTP Basic Authentification
+  # like: Dawanda.http_basic = {:user => 'myusername', :password => 'mypassword'}
+  def self.http_basic= credentials=nil
+    @http_basic = credentials
+  end
+  
   # Find a user by username. See Dawanda::User for more information.
   def self.user(username_or_id, options={})
     User.find_by_user_id(username_or_id, options)

@@ -15,7 +15,6 @@ module Dawanda
     # A Response object with the payload data
     # 
     def self.get(resource_path, parameters = {})
-      parameters = {:format => 'json'}.update(parameters)
       request = Request.new(resource_path, parameters)
       Response.new(request.get)
     end
@@ -29,7 +28,11 @@ module Dawanda
     # Perform a GET request against the API endpoint and return the raw
     # response data
     def get
-      response = Net::HTTP.get_response(endpoint_uri)
+      request = Net::HTTP::Get.new endpoint_uri.path
+      request.basic_auth Dawanda.http_basic[:user], Dawanda.http_basic[:password] if Dawanda.http_basic
+      request.set_form_data parameters
+      response = Net::HTTP.new(endpoint_uri.host, endpoint_uri.port).start {|http| http.request(request) }
+      
       case response
       when Net::HTTPSuccess, Net::HTTPRedirection
         return response.body
@@ -39,17 +42,11 @@ module Dawanda
     end
     
     def parameters # :nodoc:
-      @parameters.merge(:api_key => Dawanda.api_key)
-    end
-    
-    def query # :nodoc:
-      parameters.map {|k,v| "#{k}=#{v}"}.join('&')
+      @parameters.merge(:api_key => Dawanda.api_key, :format => 'json')
     end
     
     def endpoint_uri # :nodoc:
-      uri = URI.parse("#{self.class.base_url}#{@resource_path}")
-      uri.query = query
-      uri
+      URI.parse("#{self.class.base_url}#{@resource_path}")
     end
   end
 end
