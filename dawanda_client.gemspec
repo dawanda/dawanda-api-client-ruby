@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dawanda_client}
-  s.version = "0.1.10"
+  s.version = "0.1.11"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["DaWanda GmbH"]
-  s.date = %q{2010-03-16}
+  s.date = %q{2010-03-23}
   s.description = %q{Provides a friendly ruby-like interface to the Dawanda API}
   s.email = %q{api@dawanda.com}
   s.extra_rdoc_files = [
@@ -17,11 +17,11 @@ Gem::Specification.new do |s|
      "README.rdoc"
   ]
   s.files = [
-    "LICENSE",
+    ".gems",
+     "LICENSE",
      "README.rdoc",
      "Rakefile",
      "VERSION",
-     "config.ru",
      "dawanda_client.gemspec",
      "lib/dawanda.rb",
      "lib/dawanda/category.rb",
