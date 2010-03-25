@@ -28,7 +28,7 @@ In case of an error an exception is raised. So make sure your API client codes h
 
 If you're starting with a user, the easiest way is to use the Dawanda.user method:
 
-    >> user = Dawanda.user('meko')
+    >> user = Dawanda.get_user('meko')
     => #<Dawanda::User:0x141bf58 @result={"name"=>"meko", "city"=>"auma", "is_seller"=>true, ...
     >> user.name
     => "meko"
@@ -125,4 +125,4 @@ You can restore this token at every time to do calls on the API for a specific u
 Now you can do API requests: 
 
   >> # get user from dawanda
-  >> @user = Dawanda::OAuth.get_user
+  >> @user = Dawanda::OAuth.user

@@ -45,7 +45,7 @@ module Dawanda
       Dawanda::Response.new(@@access_token.get(url).body)
     end
 
-    def self.get_user
+    def self.user
       Dawanda::User.new(Dawanda::OAuth.get("#{API_PREFIX}/users.json").result)
     end
   end
