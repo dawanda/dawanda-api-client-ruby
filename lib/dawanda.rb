@@ -4,6 +4,9 @@ require 'net/http'
 require 'json'
 require 'time'
 
+gem 'oauth', '=0.3.7.pre1'
+require 'oauth'
+
 require 'dawanda/request'
 require 'dawanda/response'
 
@@ -16,6 +19,8 @@ require 'dawanda/shop_category'
 require 'dawanda/color'
 require 'dawanda/channel'
 require 'dawanda/pinboard'
+
+require 'dawanda/oauth'
 
 # = DaWanda Client: A friendly Ruby interface to the DaWanda API
 #
