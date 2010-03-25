@@ -8,7 +8,8 @@ The Dawanda gem provides a friendly Ruby interface to the Dawanda API
  
 Installing the latest stable version is simple:
 
-    sudo gem install dawanda_client --source=http://gemcutter.org
+    sudo gem install dawanda_client
+    sudo gem install oauth --pre
 
 == Usage
 
@@ -88,10 +89,40 @@ Dawanda categories are organized in a tree. To get the top level of categories, 
 
 == Exception
 
-  Chances are, that for some reason a HTTP request to the dawanda API can fail. This can have many reasons, either
-  missing network connection or a wrong id. In case the HTTP status code is different von 2xx or 3xx an exception containing
-  a meaningful error message is raised.
+Chances are, that for some reason a HTTP request to the dawanda API can fail. This can have many reasons, either
+missing network connection or a wrong id. In case the HTTP status code is different von 2xx or 3xx an exception containing
+a meaningful error message is raised.
   
   >> category = Dawanda::Category.find_by_id(2323)
   => RuntimeError: {"error":{"status":404,"message":"The Category 2323 could not be found"}}
-  
+ 
+== OAuth
+
+In addition to the public API, DaWanda has an OAuth API to securely provide access to user-specific data. For further information on what OAuth is and how it works see [the official OAuth website|http://oauth.net/].
+
+For using the OAuth API you have to request a consumer key and consumer secret at [http://dawanda.com/apps].
+
+To recieve information you first need to be authorized by the user. To request an authorization do the following:
+
+  >> Dawanda::OAuth.connect(OAUTH_KEY, OAUTH_SECRET)
+  >> redirect_to Dawanda::OAuth.authorize_url
+
+Now the user gets redirected to DaWanda to confirm you, once.
+
+DaWanda will redirect the user back to a given callback URL, where you now can create an 'Access Token' to make API requests.
+
+  >> Dawanda::OAuth.connect(OAUTH_KEY, OAUTH_SECRET, params)
+  >> @access_token = Dawanda::OAuth.access_token
+    
+  >> # save access token to user for later use
+  >> session[:oauth_access_token] = Marshal.dump(@access_token)
+
+You can restore this token at every time to do calls on the API for a specific user. To restore the token you can do the folowing:
+
+  >> Dawanda::OAuth.connect(OAUTH_KEY, OAUTH_SECRET)
+  >> Dawanda::OAuth.access_token = Marshal.load(session[:oauth_access_token])
+
+Now you can do API requests: 
+
+  >> # get user from dawanda
+  >> @user = Dawanda::OAuth.get_user
