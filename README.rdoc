@@ -1,5 +1,4 @@
 = DaWanda
-== Description
 
 The Dawanda gem provides a friendly Ruby interface to the Dawanda API
 
@@ -25,7 +24,7 @@ In case of an error an exception is raised. So make sure your API client codes h
 
 See the wiki for more information about what you can recieve via the DaWanda API.
 
-=== Example
+== Example
 
 If you're starting with a user, the easiest way is to use the Dawanda.user method:
 
@@ -48,7 +47,7 @@ associated shop object:
 
 See the wiki for more information about what you can recieve via the DaWanda API.
 
-=== Exception
+=== Exceptions
 
 Chances are, that for some reason a HTTP request to the dawanda API can fail. This can have many reasons, either
 missing network connection or a wrong id. In case the HTTP status code is different von 2xx or 3xx an exception containing
