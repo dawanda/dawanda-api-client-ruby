@@ -1,6 +1,6 @@
 = DaWanda
 
-The Dawanda gem provides a friendly Ruby interface to the Dawanda API
+The Dawanda gem provides a friendly Ruby interface to the Dawanda API, plus a secure {OAuth}[http://wiki.github.com/dawanda/dawanda-api-client-ruby/oauth] interface to get user-specific data.
 
 == Installation
  
@@ -22,7 +22,7 @@ from http://dawanda.com/apps).  Once you have your API key, set it in your scrip
 From there, you can make any calls to the API that you need. Note: Any call to the API can fail.
 In case of an error an exception is raised. So make sure your API client codes handles it.
 
-See the wiki for more information about what you can recieve via the DaWanda API.
+See the {wiki}[http://wiki.github.com/dawanda/dawanda-api-client-ruby/] for more information about what you can recieve via the DaWanda API.
 
 == Example
 
@@ -45,7 +45,7 @@ associated shop object:
   >> shop.name
   => "MEKO STORE"
 
-See the wiki for more information about what you can recieve via the DaWanda API.
+See the {wiki}[http://wiki.github.com/dawanda/dawanda-api-client-ruby/] for more information about what you can recieve via the DaWanda API.
 
 === Exceptions
 
