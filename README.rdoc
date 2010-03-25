@@ -1,5 +1,4 @@
-= Dawanda
-
+= DaWanda
 == Description
 
 The Dawanda gem provides a friendly Ruby interface to the Dawanda API
@@ -8,37 +7,34 @@ The Dawanda gem provides a friendly Ruby interface to the Dawanda API
  
 Installing the latest stable version is simple:
 
-    sudo gem install dawanda_client
-    sudo gem install oauth --pre
+  sudo gem install dawanda_client
+  sudo gem install oauth --pre
 
 == Usage
 
 The Dawanda API is read-only - all you need to gain access is an API Key (available 
 from http://dawanda.com/apps).  Once you have your API key, set it in your script:
 
-    require 'rubygems'
-    require 'dawanda'
-    Dawanda.api_key = 'foobar'
-    Dawanda.country = 'de'
+  require 'rubygems'
+  require 'dawanda'
+  Dawanda.api_key = 'foobar'
+  Dawanda.country = 'de'
 
 From there, you can make any calls to the API that you need. Note: Any call to the API can fail.
 In case of an error an exception is raised. So make sure your API client codes handles it.
 
-=== Users
+See the wiki for more information about what you can recieve via the DaWanda API.
+
+=== Example
 
 If you're starting with a user, the easiest way is to use the Dawanda.user method:
 
-    >> user = Dawanda.get_user('meko')
-    => #<Dawanda::User:0x141bf58 @result={"name"=>"meko", "city"=>"auma", "is_seller"=>true, ...
-    >> user.name
-    => "meko"
-    >> user.id
-    => 13008
-
-For more information about what is available for a user, check out the documentation
-for Dawanda::User.
-
-== Shops
+  >> user = Dawanda.get_user('meko')
+  => #<Dawanda::User:0x141bf58 @result={"name"=>"meko", "city"=>"auma", "is_seller"=>true, ...
+  >> user.name
+  => "meko"
+  >> user.id
+  => 13008
 
 Each user may optionally have a shop.  If a user is a seller, he / she also has an
 associated shop object:
@@ -49,80 +45,14 @@ associated shop object:
   => #<Dawanda::Shop:0x14170c0 @result={"is_vacation"=>false, "name"=>"MEKO STORE" ...
   >> shop.name
   => "MEKO STORE"
-  
-More information about shops can be found in the documentation for Dawanda::Shop.
-  
-== Products
 
-Dawanda::Shop, Dawanda::Category, Dawanda::Color contain multiple products:
+See the wiki for more information about what you can recieve via the DaWanda API.
 
-  >> shop.products
-  => [#<Dawanda::Product:0x1405f3c @result={"price"=>{"cents"=>2500, "currency_code"=>"EUR"}, "name"=>"Harmonie", ... ]
-  >> product = shop.products.first
-  => #<Dawanda::Product:0x1405f3c @result={"price"=>{"cents"=>2500, "currency_code"=>"EUR"}, "name"=>"Harmonie", ...
-  >> product.name
-  => "Harmonie"
-  >> product.description
-  => "Harmonie \n- Inselsymposium / Gimmlitztal \n- Eiche \n- geölt \n- L:150 / Durchmesser ca. 28cm"
-  >> product.product_url
-  => ""http://de.dawanda.com/product/1-Harmonie""
-  >> product.view_count
-  => 155
-  >> product.created_at
-  => Sat Sep 16 01:35:05 +0200 2006
-
-See the documentation for [Dawanda::Product|http://wiki.github.com/dawanda/dawanda-api/data-type-product] for more information.
-
-
-== Category
-
-Dawanda categories are organized in a tree. To get the top level of categories, you can call:
-
-  >> category = Dawanda::Category.top.first
-  => #<Dawanda::Category:0x138c5d8 @result={"product_count"=>0, "name"=>"2000", "id"=>218,
-  >> category.parent
-  => nil
-  >> category.children
-  => [#<Dawanda::Category:0x1395cb4 @result={"product_count"=>4851, "name"=>"2001", "id"=>222, ...
-  >> category.product_count
-  => 100
-
-== Exception
+=== Exception
 
 Chances are, that for some reason a HTTP request to the dawanda API can fail. This can have many reasons, either
 missing network connection or a wrong id. In case the HTTP status code is different von 2xx or 3xx an exception containing
 a meaningful error message is raised.
-  
+
   >> category = Dawanda::Category.find_by_id(2323)
   => RuntimeError: {"error":{"status":404,"message":"The Category 2323 could not be found"}}
- 
-== OAuth
-
-In addition to the public API, DaWanda has an OAuth API to securely provide access to user-specific data. For further information on what OAuth is and how it works see [the official OAuth website|http://oauth.net/].
-
-For using the OAuth API you have to request a consumer key and consumer secret at [http://dawanda.com/apps].
-
-To recieve information you first need to be authorized by the user. To request an authorization do the following:
-
-  >> Dawanda::OAuth.connect(OAUTH_KEY, OAUTH_SECRET)
-  >> redirect_to Dawanda::OAuth.authorize_url
-
-Now the user gets redirected to DaWanda to confirm you, once.
-
-DaWanda will redirect the user back to a given callback URL, where you now can create an 'Access Token' to make API requests.
-
-  >> Dawanda::OAuth.connect(OAUTH_KEY, OAUTH_SECRET, params)
-  >> @access_token = Dawanda::OAuth.access_token
-    
-  >> # save access token to user for later use
-  >> session[:oauth_access_token] = Marshal.dump(@access_token)
-
-You can restore this token at every time to do calls on the API for a specific user. To restore the token you can do the folowing:
-
-  >> Dawanda::OAuth.connect(OAUTH_KEY, OAUTH_SECRET)
-  >> Dawanda::OAuth.access_token = Marshal.load(session[:oauth_access_token])
-
-Now you can do API requests: 
-
-  >> # get user from dawanda
-  >> @user = Dawanda::OAuth.user
