@@ -4,7 +4,7 @@ require 'net/http'
 require 'json'
 require 'time'
 
-gem 'oauth', '=0.3.7.pre1'
+gem 'oauth', '>=0.3.7.pre1'
 require 'oauth'
 
 require 'dawanda/request'

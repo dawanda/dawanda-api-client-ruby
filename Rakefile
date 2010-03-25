@@ -42,6 +42,8 @@ begin
     
     gemspec.files.exclude 'examples/*'
     gemspec.test_files.exclude 'examples/*'
+    
+    gemspec.add_dependency('oauth', '>= 0.3.7.pre1')
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: gem install jeweler"

@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["DaWanda GmbH"]
-  s.date = %q{2010-03-23}
+  s.date = %q{2010-03-25}
   s.description = %q{Provides a friendly ruby-like interface to the Dawanda API}
   s.email = %q{api@dawanda.com}
   s.extra_rdoc_files = [
@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
      "lib/dawanda/channel.rb",
      "lib/dawanda/color.rb",
      "lib/dawanda/model.rb",
+     "lib/dawanda/oauth.rb",
      "lib/dawanda/pinboard.rb",
      "lib/dawanda/product.rb",
      "lib/dawanda/request.rb",
@@ -69,9 +70,12 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<oauth>, [">= 0.3.7.pre1"])
     else
+      s.add_dependency(%q<oauth>, [">= 0.3.7.pre1"])
     end
   else
+    s.add_dependency(%q<oauth>, [">= 0.3.7.pre1"])
   end
 end
 
