@@ -52,8 +52,9 @@ module Dawanda
         class_eval <<-CODE
           def self.find_all_by_#{parameter}(#{parameter}, params = {})
             response = Request.get("#{endpoint}", params.reject{|key, value| key == :raw_response})
-            return response if params[:raw_response]
-            response.results.map {|listing| new(listing) }
+            results = response.results.map {|listing| new(listing) }
+            return OpenStruct.new({ :results => results, :entries => response.entries, :pages => response.pages, :type => response.type}) if params[:raw_response]
+            results
           end
         CODE
       end
@@ -74,8 +75,10 @@ module Dawanda
             response = Request.get("#{endpoint}", params.reject{|key, value| key == :raw_response})
             return response if params[:raw_response]
             if response.result.nil?
+              return OpenStruct.new({ :results => response.results.map {|listing| new(listing) }, :entries => response.entries, :pages => response.pages, :type => response.type}) if params[:raw_response]
               response.results.map {|listing| new(listing) }
             else
+              return OpenStruct.new({ :result => new(response.result), :entries => response.entries, :pages => response.pages, :type => type}) if params[:raw_response]
               new response.result
             end
           end
