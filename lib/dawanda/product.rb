@@ -35,7 +35,7 @@ module Dawanda
     attribute :user_id, [ :user => :id ]
     
     attributes :id, :name, :description, :created_at, :view_count, :tags,
-               :ending, :quantity, :materials, :price, :restful_path, :product_url, :images, :default_image, :user,
+               :ending, :quantity, :materials, :price, :restful_path, :product_url, :images, :default_image, :user
  
     # Time that this product was created
     #
