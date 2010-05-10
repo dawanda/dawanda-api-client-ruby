@@ -35,7 +35,7 @@ module Dawanda
     attribute :user_id, [ :user => :id ]
     
     attributes :id, :name, :description, :created_at, :view_count, :tags,
-               :ending, :quantity, :materials, :price, :restful_path, :product_url, :images, :default_image, :user
+               :ending, :quantity, :materials, :price, :restful_path, :product_url, :default_image, :user
  
     # Time that this product was created
     #
@@ -60,12 +60,17 @@ module Dawanda
       params.update(:keyword => keyword)
       self.find_all_by_hex_search(color, params)
     end
-    
-    # The primary image for this product.  See Dawanda::Image for more
-    # information
-    #
-    def image_25x25
-      images.first['image_25x25']
+
+    # backward compatability, remove at next major version bump
+    def images
+      warn 'Deprecation Warning: please use the new default_image()-method'
+      [
+       {
+         'image_80x80' => default_image['thumb'],
+         'image_160x120' => default_image['listview'],
+         'image_800x600' => default_image['big']
+       }
+      ]
     end
     
     def category(params = {})
