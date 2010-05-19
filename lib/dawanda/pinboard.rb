@@ -15,7 +15,7 @@ module Dawanda
     finder :one, '/pinboards/:id'
     finder :all, '/users/:user_id/pinboards'
     
-    attributes :id, :name, :description
+    attributes :id, :name, :description, :user
     
     def products(params = {})
       Product.find_all_by_pinboard_id(id, params)
