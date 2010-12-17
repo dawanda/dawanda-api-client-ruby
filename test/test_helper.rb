@@ -1,5 +1,7 @@
 require 'rubygems'
-require 'throat_punch'
+require 'shoulda'
+require 'matchy'
+require 'mocha'
 require 'net/http'
 require 'json'
 require 'time'

@@ -16,16 +16,14 @@ GEM
     rubyforge (2.0.4)
       json_pure (>= 1.1.7)
     shoulda (2.11.3)
-    throat-punch (0.2.3)
-      mhennemeyer-matchy
-      mocha
-      shoulda
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   jeweler
+  mhennemeyer-matchy
+  mocha
   oauth (~> 0.4.0)
   rake
-  throat-punch
+  shoulda
