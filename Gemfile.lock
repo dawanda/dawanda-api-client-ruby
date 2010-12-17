@@ -1,0 +1,32 @@
+GEM
+  remote: http://rubygems.org/
+  remote: http://gems.github.com/
+  specs:
+    gemcutter (0.6.1)
+    git (1.2.5)
+    jeweler (1.4.0)
+      gemcutter (>= 0.1.0)
+      git (>= 1.2.5)
+      rubyforge (>= 2.0.0)
+    json_pure (1.4.6)
+    mhennemeyer-matchy (0.3.3)
+    mocha (0.9.1)
+      rake
+    oauth (0.4.3)
+    rake (0.8.7)
+    reagent-throat-punch (0.2.2)
+      mhennemeyer-matchy (= 0.3.3)
+      mocha (= 0.9.1)
+      thoughtbot-shoulda (= 2.10.1)
+    rubyforge (2.0.4)
+      json_pure (>= 1.1.7)
+    thoughtbot-shoulda (2.10.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  jeweler
+  oauth (~> 0.4.0)
+  rake
+  reagent-throat-punch
